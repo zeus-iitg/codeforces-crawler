@@ -1,0 +1,5 @@
+beautifulsoup4
+Django
+lxml
+blinker
+numpy

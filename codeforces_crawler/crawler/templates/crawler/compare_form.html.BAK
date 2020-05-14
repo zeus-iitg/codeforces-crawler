@@ -1,0 +1,32 @@
+{% extends 'crawler/base.html' %}
+
+{% block titleblock %}
+{% load static %}
+<link href="https://fonts.googleapis.com/css2?family=Lato&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&amp;display=swap" rel="stylesheet">
+<link href="{% static "crawler/sa.css" %}" rel="stylesheet">
+</head>
+<main id="main">
+    <header id="header_form">
+        <h1 id="title" style="text-align: center; font-size: 30px;">Let's Go Compare</h1>
+    </header>
+    <form class="form-horizontal" method="POST" action="">
+        {% csrf_token %}
+        {{ formset.management_form }}
+        {% for form in formset %}
+        <label>Username</label>
+        <div class="col text-center">
+            <div class="input-group">
+                {{form.username}}
+            </div>
+            <br>
+        </div>
+        {% endfor %}
+        <br>
+        <button type="submit" id="submit" class="submit-button">
+            Compare
+        </button>
+    </form>
+</main>
+</body>
+{% endblock %}
